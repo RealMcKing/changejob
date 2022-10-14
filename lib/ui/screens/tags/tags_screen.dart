@@ -7,6 +7,37 @@ class TagsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<TagsInformation> listTagsInformation = [
+      TagsInformation(label: 'MySQL', selected: false),
+      TagsInformation(label: 'Flutter', selected: true),
+      TagsInformation(label: 'Dart', selected: false),
+      TagsInformation(label: 'Vim', selected: false),
+      TagsInformation(label: 'SQLite', selected: false),
+      TagsInformation(label: 'MySQL', selected: false),
+      TagsInformation(label: 'Firebase Database', selected: true),
+      TagsInformation(label: 'UI/UX', selected: false),
+      TagsInformation(label: 'Java', selected: false),
+      TagsInformation(label: 'Swift', selected: false),
+      TagsInformation(label: 'Rest API', selected: false),
+      TagsInformation(label: 'Websocket', selected: true),
+      TagsInformation(label: 'SOLID', selected: false),
+      TagsInformation(label: 'Dio', selected: false),
+      TagsInformation(label: 'Freezed', selected: false),
+      TagsInformation(label: 'BLoC', selected: false),
+      TagsInformation(label: 'DRY', selected: true),
+      TagsInformation(label: 'Clean Architecture', selected: false),
+      TagsInformation(label: 'MVI', selected: false),
+      TagsInformation(label: 'MVVM', selected: false),
+      TagsInformation(label: 'MVP', selected: false),
+      TagsInformation(label: 'Intl', selected: true),
+      TagsInformation(label: 'rxDart', selected: false),
+      TagsInformation(label: 'Equatable', selected: false),
+      TagsInformation(label: 'Provider', selected: false),
+      TagsInformation(label: 'FlutterBloc', selected: false),
+      TagsInformation(label: 'Figma', selected: true),
+      TagsInformation(label: 'Git', selected: false),
+      TagsInformation(label: 'WebRTC', selected: false),
+    ];
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -45,132 +76,20 @@ class TagsScreen extends StatelessWidget {
             )
           ],
         ),
-        body: Padding(
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Wrap(
-              alignment: WrapAlignment.center,
-              spacing: 8.0,
-              children: const [
-                _TagChipWidget(
-                  label: 'Registration',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Emails of Employment Center',
-                  selected: true,
-                ),
-                _TagChipWidget(
-                  label: 'Useful links',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Hotlines',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Registasdasdration',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Emails of Emploasdyment Center',
-                  selected: true,
-                ),
-                _TagChipWidget(
-                  label: 'Useful links',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Hotlinasdasdes',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Registration',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Emails of Employment Center',
-                  selected: true,
-                ),
-                _TagChipWidget(
-                  label: 'Usefasdul links',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Hotlsadasdines',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Registration',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Emails of Employment Center',
-                  selected: true,
-                ),
-                _TagChipWidget(
-                  label: 'Useasdadsful links',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Hotliasdnes',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Regiasasdstration',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Emaasdasdils of Employment Center',
-                  selected: true,
-                ),
-                _TagChipWidget(
-                  label: 'Useful links',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Hotasdlines',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Hotlsadasdines',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Registration',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Emails of Employment Center',
-                  selected: true,
-                ),
-                _TagChipWidget(
-                  label: 'Useasdadsful links',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Hotliasdnes',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Regiasasdstration',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Emaasdasdils of Employment Center',
-                  selected: true,
-                ),
-                _TagChipWidget(
-                  label: 'Useful links',
-                  selected: false,
-                ),
-                _TagChipWidget(
-                  label: 'Hotasdlines',
-                  selected: false,
-                ),
-              ],
-            ),
+          child: Wrap(
+            alignment: WrapAlignment.center,
+            spacing: 8.0,
+            children: listTagsInformation
+                .map(
+                  (item) => _TagChipWidget(
+                    tagsInformation: item,
+                  ),
+                )
+                .toList()
+                .cast<Widget>(),
           ),
         ),
         floatingActionButton: FloatingActionButton(
@@ -237,23 +156,18 @@ class TagsInformation {
 }
 
 class _TagChipWidget extends StatelessWidget {
-  final String label;
-  final bool selected;
+  final TagsInformation tagsInformation;
 
   const _TagChipWidget({
     Key? key,
-    required this.label,
-    required this.selected,
+    required this.tagsInformation,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FilterChip(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-      label: Text(label),
-      backgroundColor: const Color(0xFF063A34),
-      selectedColor: const Color(0xFF03DA9A),
-      selected: selected,
+      label: Text(tagsInformation.label),
+      selected: tagsInformation.selected,
       onSelected: (bool value) {},
     );
   }

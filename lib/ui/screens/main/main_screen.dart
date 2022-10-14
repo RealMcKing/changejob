@@ -39,8 +39,7 @@ class _MainScreenState extends State<MainScreen> {
           index: _selectedIndex,
           children: [
             _screenFactory.makeVacancyList(),
-            _screenFactory.makeUser(),
-            _screenFactory.makeUser(),
+            _screenFactory.makeGenerationResume(),
             _screenFactory.makeUser(),
           ],
         ),
@@ -62,15 +61,11 @@ class _MainScreenState extends State<MainScreen> {
                 label: 'Vacancy',
               ),
               BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.arrow_up_bin_fill),
-                label: 'Information',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.cube_box_fill),
+                icon: Icon(CupertinoIcons.doc_on_clipboard_fill),
                 label: 'Resume',
               ),
               BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.wrench_fill),
+                icon: Icon(CupertinoIcons.person_solid),
                 label: 'Me',
               ),
             ],

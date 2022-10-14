@@ -8,6 +8,7 @@ abstract class MainNavigationRouteNames {
   static const tagsScreen = 'tags';
   static const mainScreen = 'main';
   static const vacancyDetailsScreen = 'main/vacancyDetails';
+  static const resumePDFScreen = 'main/vacancyDetails/resumePDF';
 }
 
 class MainNavigation {
@@ -19,6 +20,8 @@ class MainNavigation {
     MainNavigationRouteNames.mainScreen: (_) => _screenFactory.makeMain(),
     MainNavigationRouteNames.vacancyDetailsScreen: (_) =>
         _screenFactory.makeVacancyDetails(),
+    MainNavigationRouteNames.resumePDFScreen: (_) =>
+        _screenFactory.makeResumePDF(),
   };
 
   Route<Object> onGenerateRoute(RouteSettings settings) {
@@ -29,7 +32,9 @@ class MainNavigation {
             child: Text('Navigation Error'),
           ),
         );
-        return MaterialPageRoute(builder: (_) => widget);
+        return MaterialPageRoute(
+          builder: (_) => widget,
+        );
     }
   }
 }

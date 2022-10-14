@@ -1,3 +1,5 @@
+import 'package:change_job/ui/screens/generation_resume/generation_resume_screen.dart';
+import 'package:change_job/ui/screens/resume_pdf/resume_pdf_screen.dart';
 import 'package:change_job/ui/screens/vacancy_details_screen/vacancy_details_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -45,5 +47,13 @@ class ScreenFactory {
 
   Widget makeVacancyDetails() {
     return const VacancyDetailsScreen();
+  }
+
+  Widget makeGenerationResume(){
+    return const GenerationResumeScreen();
+  }
+
+  Widget makeResumePDF(){
+    return const ResumePDFScreen();
   }
 }
