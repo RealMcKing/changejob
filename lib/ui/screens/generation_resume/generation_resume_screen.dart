@@ -67,50 +67,46 @@ class GenerationResumeScreen extends StatelessWidget {
           child: Container(
             width: double.infinity,
             color: Colors.transparent,
-            child: Stack(
-              children: [
-                BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 9.0,
-                    sigmaY: 9.0,
+            child: BackdropFilter(
+              filter: ImageFilter.blur(
+                sigmaX: 9.0,
+                sigmaY: 9.0,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0),
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      const Color(0xFF063A34).withOpacity(0.87),
+                      const Color(0xFF063A34).withOpacity(0.87),
+                    ],
                   ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          const Color(0xFF063A34).withOpacity(0.87),
-                          const Color(0xFF063A34).withOpacity(0.87),
-                        ],
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0xFF000000).withOpacity(0.28),
-                          blurRadius: 47,
-                          spreadRadius: 0,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFF000000).withOpacity(0.28),
+                      blurRadius: 47,
+                      spreadRadius: 0,
+                      offset: const Offset(0, 4),
                     ),
-                    child: const Center(
-                      child: Icon(
-                        CupertinoIcons.doc_person_fill,
-                        color: Color(0xFFFFFFFF),
-                        shadows: [
-                          BoxShadow(
-                            color: Color(0x87FFFFFF),
-                            spreadRadius: 15,
-                            blurRadius: 15,
-                            offset: Offset(-1, 0),
-                          ),
-                        ],
+                  ],
+                ),
+                child: const Center(
+                  child: Icon(
+                    CupertinoIcons.doc_person_fill,
+                    color: Color(0xFFFFFFFF),
+                    shadows: [
+                      BoxShadow(
+                        color: Color(0x87FFFFFF),
+                        spreadRadius: 15,
+                        blurRadius: 15,
+                        offset: Offset(-1, 0),
                       ),
-                    ),
+                    ],
                   ),
                 ),
-              ],
+              ),
             ),
           ),
         ),

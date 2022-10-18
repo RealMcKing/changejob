@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ChangeJobTheme.darkTheme,
       routes: mainNavigation.routes,
       onGenerateRoute: mainNavigation.onGenerateRoute,
-      initialRoute: MainNavigationRouteNames.resumePDFScreen,
+      initialRoute: MainNavigationRouteNames.mainScreen,
     );
   }
 }
